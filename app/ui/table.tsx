@@ -68,7 +68,7 @@ export default function BasicTable({ getData }: {getData: any}) {
             setData([]);
             setIsLoading(false);
           } else {
-            await new Promise((resolve) => setTimeout(resolve, 3000));
+            //await new Promise((resolve) => setTimeout(resolve, 3000));
             const initialData = await getData(searchParams.get('clan-tag')?.toString());
             console.log('hi')
             setData(initialData);
@@ -85,7 +85,7 @@ export default function BasicTable({ getData }: {getData: any}) {
 
   
   async function handleSearch(formData: string | undefined) { 
-    await new Promise((resolve) => setTimeout(resolve, 3000));
+    //await new Promise((resolve) => setTimeout(resolve, 3000));
     if (formData === '' || formData === undefined) {
       setData([])
     } else {
