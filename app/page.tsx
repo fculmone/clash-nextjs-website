@@ -1,6 +1,5 @@
 import BasicTable from "./ui/table";
 import { getDataFromServer } from "./lib/data";
-import { RevenueChartSkeleton } from "./ui/skeletons";
 import { Suspense } from "react";
 
 export default function Home() {

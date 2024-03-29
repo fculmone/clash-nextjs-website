@@ -1,18 +1,22 @@
-// Loading animation
-const shimmer =
-  'before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_2s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/60 before:to-transparent';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
-export function RevenueChartSkeleton() {
+export function TableSkeleton() {
+  //flex flex-1 overflow-x-auto shadow-md sm:rounded-l xl:w-[1200px] lg:w-[1000px] w-screen
   return (
-    <div className={`${shimmer} relative w-full overflow-hidden md:col-span-4`}>
-      <div className="mb-4 h-8 w-36 rounded-md bg-gray-100" />
-      <div className="rounded-xl bg-gray-100 p-4">
-        <div className="mt-0 grid h-[410px] grid-cols-12 items-end gap-2 rounded-md bg-white p-4 sm:grid-cols-13 md:gap-4" />
-        <div className="flex items-center pb-2 pt-6">
-          <div className="h-5 w-5 rounded-full bg-gray-200" />
-          <div className="ml-2 h-4 w-20 rounded-md bg-gray-200" />
-        </div>
-      </div>
+    <div className='xl:w-[1200px] lg:w-[1000px] w-screen bg-gray-300 border-2 border-solid border-gray-400 h-96 p-2 sm:rounded-lg border-collapse mt-12'>
+      <SkeletonTheme baseColor="#b9b9b9" highlightColor="#999999">
+        <Skeleton className="mt-2 mb-2" height={60}/>
+        <Skeleton className="my-1" height={40}/>
+        <Skeleton className="my-1" height={40}/>
+        <Skeleton className="my-1" height={40}/>
+        <Skeleton className="my-1" height={40}/>
+        <Skeleton className="my-1" height={40}/>
+        <Skeleton className="my-1" height={40}/>
+          
+          
+      </SkeletonTheme>
     </div>
+    
   );
 }
