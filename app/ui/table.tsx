@@ -69,9 +69,15 @@ export default function BasicTable({ getData }: {getData: any}) {
             setIsLoading(false);
           } else {
             //await new Promise((resolve) => setTimeout(resolve, 3000));
-            const initialData = await getData(searchParams.get('clan-tag')?.toString());
-            console.log('hi')
-            setData(initialData);
+            try {
+              const initialData = await getData(searchParams.get('clan-tag')?.toString());
+              console.log('hi');
+              setData(initialData);
+            } catch (e) {
+              console.log(e);
+              console.log('caught above error in use effect try catch')
+            }
+            
             setIsLoading(false);
           }
           
