@@ -70,9 +70,15 @@ export default function BasicTable({ getData }: {getData: any}) {
           } else {
             //await new Promise((resolve) => setTimeout(resolve, 3000));
             const initialData = await getData(searchParams.get('clan-tag')?.toString());
-            console.log(initialData);
-            setData(initialData);
-            setIsLoading(false);
+            if (initialData === undefined) {
+              console.log('initialData undefined, reloading page');
+              location.reload();
+              console.log('initialData undefined, just reloaded the page');
+            } else {
+              setData(initialData);
+              setIsLoading(false);
+            }
+            
           }
           
         }
