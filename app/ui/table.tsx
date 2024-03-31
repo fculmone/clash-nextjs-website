@@ -70,7 +70,7 @@ export default function BasicTable({ getData }: {getData: any}) {
           } else {
             //await new Promise((resolve) => setTimeout(resolve, 3000));
             const initialData = await getData(searchParams.get('clan-tag')?.toString());
-            console.log('hi');
+            console.log(initialData);
             setData(initialData);
             setIsLoading(false);
           }
@@ -87,6 +87,7 @@ export default function BasicTable({ getData }: {getData: any}) {
           console.error(err);
           console.log('should be a 500 timeout error. restarting page');
           location.reload();
+          console.log('page reset');
         }       
       }
     })();
