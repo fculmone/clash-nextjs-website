@@ -162,6 +162,7 @@ export default function BasicTable({ getData }: { getData: any }) {
       replace(`${pathname}?${params.toString()}`);
       const response = await getData(formData);
       setData(response[0]);
+      setGraphData(response[1]);
     }
 
     setIsLoading(false);
@@ -262,7 +263,7 @@ export default function BasicTable({ getData }: { getData: any }) {
             }
           )}
         >
-          <div className="absolute top-6 right-7">
+          <div className="absolute top-14 right-7">
             <button
               onClick={() => setIsOpen((prev) => !prev)}
               className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg border-solid border-2 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-200"
