@@ -161,7 +161,7 @@ export default function BasicTable({ getData }: { getData: any }) {
       }
       replace(`${pathname}?${params.toString()}`);
       const response = await getData(formData);
-      setData(response);
+      setData(response[0]);
     }
 
     setIsLoading(false);
@@ -285,7 +285,7 @@ export default function BasicTable({ getData }: { getData: any }) {
           <div className="flex w-screen h-screen items-center justify-center ">
             <div
               ref={graphDivRef}
-              className="flex bg-white h-screen w-screen max-h-[800px] max-w-[800px] items-center justify-center p-5"
+              className="flex bg-white h-screen w-screen max-h-[800px] max-w-[800px] items-center justify-center p-6"
             >
               <WarBattleGraph
                 graphData={graphData}
