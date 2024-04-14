@@ -114,8 +114,12 @@ export default function BasicTable({ getData }: { getData: any }) {
               location.reload();
               console.log("initialData undefined, just reloaded the page");
             } else {
-              setData(initialData[0]);
-              setGraphData(initialData[1]);
+              if (initialData.length === 1) {
+                setData(initialData);
+              } else {
+                setData(initialData[0]);
+                setGraphData(initialData[1]);
+              }
               setIsLoading(false);
               console.log(initialData);
             }
@@ -161,8 +165,15 @@ export default function BasicTable({ getData }: { getData: any }) {
       }
       replace(`${pathname}?${params.toString()}`);
       const response = await getData(formData);
-      setData(response[0]);
-      setGraphData(response[1]);
+
+      console.log(response);
+      console.log(response.length);
+      if (response.length === 1) {
+        setData(response);
+      } else {
+        setData(response[0]);
+        setGraphData(response[1]);
+      }
     }
 
     setIsLoading(false);
@@ -217,7 +228,7 @@ export default function BasicTable({ getData }: { getData: any }) {
     onGlobalFilterChange: setFiltering,
   });
 
-  if (data.length == 0 && !isLoading) {
+  if (data.length === 0 && !isLoading) {
     return (
       <div>
         <ClanTagSearch
@@ -228,7 +239,7 @@ export default function BasicTable({ getData }: { getData: any }) {
         <p>Please enter in your clan</p>
       </div>
     );
-  } else if (data.length == 1 && !isLoading) {
+  } else if (data.length === 1 && !isLoading) {
     return (
       <div>
         <ClanTagSearch
