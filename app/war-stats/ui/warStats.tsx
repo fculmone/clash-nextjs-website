@@ -182,7 +182,7 @@ export default function WarStats({ getData }: { getData: any }) {
 
         <div className="flex flex-col items-center justify-center">
           <p className="mt-10 mb-4 font-bold text-2xl">
-            {data[1][1]}'s Clan Stats
+            {data[1][1]}&apos;s Clan Stats
           </p>
           <div className="h-screen w-screen max-h-[800px] max-w-[800px] mt-8 px-2 sm:px-4 md:px-8 items-center justify-center">
             <WarHistoryLineGraph graphData={data} />
