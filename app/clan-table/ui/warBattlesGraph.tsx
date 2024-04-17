@@ -45,6 +45,7 @@ export function WarBattleGraph({
     plugins: {
       legend: {
         position: "top" as const,
+        onClick: (e) => e.native.stopPropagation(),
       },
       title: {
         display: true,

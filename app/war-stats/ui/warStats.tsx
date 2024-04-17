@@ -3,54 +3,7 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { WarHistoryLineGraph } from "./warHistoryLineGraph";
-
-function ClanTagSearch({
-  handleSearch,
-  isLoading,
-  setIsLoading,
-  prevValue,
-}: {
-  handleSearch: Function;
-  isLoading: boolean;
-  setIsLoading: Dispatch<SetStateAction<boolean>>;
-  prevValue: string | undefined;
-}) {
-  //const [searchInput, setSearchInput] = useState(});
-  const searchParams = useSearchParams();
-  const pathname = usePathname();
-  const { replace } = useRouter();
-
-  function writeStuff() {
-    //setSearchInput(event.target.value);
-  }
-
-  function search(formData: any) {
-    console.log("in search function");
-    //alert("hi");
-    setIsLoading(true);
-    handleSearch(formData.get("query"));
-  }
-
-  return (
-    <form action={search}>
-      <input
-        name="query"
-        type="text"
-        placeholder="Enter Your Clan Tag"
-        defaultValue={isLoading ? " " : prevValue}
-        disabled={isLoading}
-      />
-      <button
-        className="disabled:border-red-500 disabled:border-2"
-        disabled={isLoading}
-        type="submit"
-        onClick={() => console.log("form button clicked")}
-      >
-        Search
-      </button>
-    </form>
-  );
-}
+import { ClanTagSearch } from "@/app/ui/clanTagSearch";
 
 export default function WarStats({ getData }: { getData: any }) {
   const searchParams = useSearchParams();
@@ -144,7 +97,12 @@ export default function WarStats({ getData }: { getData: any }) {
         <p>Please enter in your clan</p>
       </div>
     );
-  } else if (data.length === 1 && !isLoading) {
+  } else if (
+    typeof data === "string" &&
+    // @ts-ignore
+    data.includes("not in riverrace") &&
+    !isLoading
+  ) {
     return (
       <div>
         <ClanTagSearch
@@ -153,7 +111,10 @@ export default function WarStats({ getData }: { getData: any }) {
           setIsLoading={setIsLoading}
           prevValue={prevTag}
         />
-        <p>Clan Tag is invalid</p>
+        <p>
+          Either the clan tag is invalid, or the clan is not currently in a
+          river race
+        </p>
       </div>
     );
   } else if (isLoading) {
@@ -187,73 +148,80 @@ export default function WarStats({ getData }: { getData: any }) {
           <div className="h-screen w-screen max-h-[800px] max-w-[800px] mt-8 px-2 sm:px-4 md:px-8 items-center justify-center">
             <WarHistoryLineGraph graphData={data} />
           </div>
-          <div className="text-center">
-            <p className="mb-4">
-              Based on your previous clan war history, the probability of your
-              rank in the next war battle is as follows:{" "}
-            </p>
-            <div className="flex items-center justify-center">
-              <div className="grid grid-cols-2">
-                <div className="block text-left">1st:</div>
-                <div className="block text-left">
-                  {(
-                    (Math.round((data[0][0] + Number.EPSILON) * 10000) /
-                      10000) *
-                    100
-                  ).toFixed(2)}
-                  %
+          {data[0].length > 0 ? (
+            <div className="text-center">
+              <p className="mb-4">
+                Based on your previous clan war history, the probability of your
+                rank in the next war battle is as follows:{" "}
+              </p>
+              <div className="flex items-center justify-center">
+                <div className="grid grid-cols-2">
+                  <div className="block text-left">1st:</div>
+                  <div className="block text-left">
+                    {(
+                      (Math.round((data[0][0] + Number.EPSILON) * 10000) /
+                        10000) *
+                      100
+                    ).toFixed(2)}
+                    %
+                  </div>
+                  <div className="block text-left">2nd:</div>
+                  <div className="block text-left">
+                    {(
+                      (Math.round((data[0][1] + Number.EPSILON) * 10000) /
+                        10000) *
+                      100
+                    ).toFixed(2)}
+                    %
+                  </div>
+                  {data[0].length > 2 && (
+                    <>
+                      <div className="block text-left">3rd:</div>
+                      <div className="block text-left">
+                        {(
+                          (Math.round((data[0][2] + Number.EPSILON) * 10000) /
+                            10000) *
+                          100
+                        ).toFixed(2)}
+                        %
+                      </div>
+                    </>
+                  )}
+                  {data[0].length > 3 && (
+                    <>
+                      <div className="block text-left">4th:</div>
+                      <div className="block text-left">
+                        {(
+                          (Math.round((data[0][3] + Number.EPSILON) * 10000) /
+                            10000) *
+                          100
+                        ).toFixed(2)}
+                        %
+                      </div>
+                    </>
+                  )}
+                  {data[0].length > 4 && (
+                    <>
+                      <div className="block text-left">5th:</div>
+                      <div className="block text-left">
+                        {(
+                          (Math.round((data[0][4] + Number.EPSILON) * 10000) /
+                            10000) *
+                          100
+                        ).toFixed(2)}
+                        %
+                      </div>
+                    </>
+                  )}
                 </div>
-                <div className="block text-left">2nd:</div>
-                <div className="block text-left">
-                  {(
-                    (Math.round((data[0][1] + Number.EPSILON) * 10000) /
-                      10000) *
-                    100
-                  ).toFixed(2)}
-                  %
-                </div>
-                {data[0].length > 2 && (
-                  <>
-                    <div className="block text-left">3rd:</div>
-                    <div className="block text-left">
-                      {(
-                        (Math.round((data[0][2] + Number.EPSILON) * 10000) /
-                          10000) *
-                        100
-                      ).toFixed(2)}
-                      %
-                    </div>
-                  </>
-                )}
-                {data[0].length > 3 && (
-                  <>
-                    <div className="block text-left">4th:</div>
-                    <div className="block text-left">
-                      {(
-                        (Math.round((data[0][3] + Number.EPSILON) * 10000) /
-                          10000) *
-                        100
-                      ).toFixed(2)}
-                      %
-                    </div>
-                  </>
-                )}
-                {data[0].length > 4 && (
-                  <>
-                    <div className="block text-left">5th:</div>
-                    <div className="block text-left">
-                      {(
-                        (Math.round((data[0][4] + Number.EPSILON) * 10000) /
-                          10000) *
-                        100
-                      ).toFixed(2)}
-                      %
-                    </div>
-                  </>
-                )}
               </div>
             </div>
-          </div>
+          ) : (
+            <div>
+              Cannot calculate probabilities since one or more clans does not
+              have any war history
+            </div>
+          )}
         </div>
       </div>
     );

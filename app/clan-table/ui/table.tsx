@@ -16,52 +16,7 @@ import { Dispatch, SetStateAction } from "react";
 import { Underdog } from "next/font/google";
 import { TableSkeleton } from "./skeletons";
 import { WarBattleGraph } from "./warBattlesGraph";
-
-// TODO: fix default text bug and make this into its own ui element
-function ClanTagSearch({
-  handleSearch,
-  isLoading,
-  setIsLoading,
-}: {
-  handleSearch: Function;
-  isLoading: boolean;
-  setIsLoading: Dispatch<SetStateAction<boolean>>;
-}) {
-  //const [searchInput, setSearchInput] = useState(});
-  const searchParams = useSearchParams();
-  const pathname = usePathname();
-  const { replace } = useRouter();
-
-  function writeStuff() {
-    //setSearchInput(event.target.value);
-  }
-
-  function search(formData: any) {
-    console.log("in search function");
-    //alert("hi");
-    setIsLoading(true);
-    handleSearch(formData.get("query"));
-  }
-
-  return (
-    <form action={search}>
-      <input
-        name="query"
-        type="text"
-        placeholder="Enter Your Clan Tag"
-        defaultValue={searchParams.get("clan-tag")?.toString()}
-      />
-      <button
-        className="disabled:border-red-500 disabled:border-2"
-        disabled={isLoading}
-        type="submit"
-        onClick={() => console.log("form button clicked")}
-      >
-        Search
-      </button>
-    </form>
-  );
-}
+import { ClanTagSearch } from "@/app/ui/clanTagSearch";
 
 export default function BasicTable({ getData }: { getData: any }) {
   const searchParams = useSearchParams();
@@ -69,6 +24,7 @@ export default function BasicTable({ getData }: { getData: any }) {
   const { replace } = useRouter();
 
   const [data, setData] = useState<any[]>([]);
+  const [prevTag, setPrevTag] = useState<string | undefined>("");
   // prettier-ignore
   const [graphData, setGraphData] = useState<any[]>([{
     "Name": "Daniel⚔️",
@@ -126,6 +82,7 @@ export default function BasicTable({ getData }: { getData: any }) {
                 setGraphData(initialData[1]);
               }
               setIsLoading(false);
+              setPrevTag(searchParams.get("clan-tag")?.toString());
               console.log(initialData);
             }
           }
@@ -172,6 +129,7 @@ export default function BasicTable({ getData }: { getData: any }) {
       const params = new URLSearchParams(searchParams);
       if (formData) {
         params.set("clan-tag", formData);
+        setPrevTag(formData);
       } else {
         params.delete("clan-tag");
       }
@@ -182,9 +140,11 @@ export default function BasicTable({ getData }: { getData: any }) {
       console.log(response.length);
       if (response.length === 1) {
         setData(response);
+        setPrevTag(formData);
       } else {
         setData(response[0]);
         setGraphData(response[1]);
+        setPrevTag(formData);
       }
     }
 
@@ -254,6 +214,7 @@ export default function BasicTable({ getData }: { getData: any }) {
           handleSearch={handleSearch}
           isLoading={isLoading}
           setIsLoading={setIsLoading}
+          prevValue={prevTag}
         />
         <p>Please enter in your clan</p>
       </div>
@@ -265,6 +226,7 @@ export default function BasicTable({ getData }: { getData: any }) {
           handleSearch={handleSearch}
           isLoading={isLoading}
           setIsLoading={setIsLoading}
+          prevValue={prevTag}
         />
         <p>Clan Tag is invalid</p>
       </div>
@@ -276,6 +238,7 @@ export default function BasicTable({ getData }: { getData: any }) {
           handleSearch={handleSearch}
           isLoading={isLoading}
           setIsLoading={setIsLoading}
+          prevValue={prevTag}
         />
         <TableSkeleton />
       </div>
@@ -330,6 +293,7 @@ export default function BasicTable({ getData }: { getData: any }) {
           handleSearch={handleSearch}
           isLoading={isLoading}
           setIsLoading={setIsLoading}
+          prevValue={prevTag}
         />
         <label htmlFor="table-search" className="sr-only">
           Search
