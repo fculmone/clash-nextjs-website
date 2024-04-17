@@ -133,7 +133,13 @@ export default function Header() {
                 <Link
                   onClick={() => setIsOpen((prev) => !prev)}
                   key={link.name}
-                  href={link.href}
+                  href={
+                    link.href +
+                    (searchParams.get("clan-tag")?.toString() != undefined &&
+                    searchParams.get("clan-tag")?.toString() != ""
+                      ? "?clan-tag=" + searchParams.get("clan-tag")?.toString()
+                      : "")
+                  }
                   className={clsx(
                     "flex justify-center py-5 text-xl text-gray-700",
                     {

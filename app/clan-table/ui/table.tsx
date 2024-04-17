@@ -17,6 +17,7 @@ import { Underdog } from "next/font/google";
 import { TableSkeleton } from "./skeletons";
 import { WarBattleGraph } from "./warBattlesGraph";
 
+// TODO: fix default text bug and make this into its own ui element
 function ClanTagSearch({
   handleSearch,
   isLoading,
@@ -35,7 +36,9 @@ function ClanTagSearch({
     //setSearchInput(event.target.value);
   }
 
-  async function search(formData: any) {
+  function search(formData: any) {
+    console.log("in search function");
+    //alert("hi");
     setIsLoading(true);
     handleSearch(formData.get("query"));
   }
@@ -52,6 +55,7 @@ function ClanTagSearch({
         className="disabled:border-red-500 disabled:border-2"
         disabled={isLoading}
         type="submit"
+        onClick={() => console.log("form button clicked")}
       >
         Search
       </button>
@@ -76,6 +80,7 @@ export default function BasicTable({ getData }: { getData: any }) {
       searchParams.get("clan-tag")?.toString() != ""
   );
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isError, setIsError] = useState<boolean>(false);
 
   const graphDivRef = useRef<any>(null);
   const playerIndexRef = useRef<number>(0);
@@ -126,6 +131,10 @@ export default function BasicTable({ getData }: { getData: any }) {
           }
         }
       } catch (err: any) {
+        setIsError(true);
+        console.error(err);
+        /* It was useless. This only goes goes when the server is down or if the server is
+              unreachable (ie. when there is no internet)
         //pretty sure this is useless, but in theory, it should work sometimes
         if (err.response) {
           // if there is response, it means its not a 50x, but 4xx
@@ -140,6 +149,7 @@ export default function BasicTable({ getData }: { getData: any }) {
           location.reload();
           console.log("page reset");
         }
+        */
       }
     })();
   }, []);
@@ -153,7 +163,9 @@ export default function BasicTable({ getData }: { getData: any }) {
   };
 
   async function handleSearch(formData: string | undefined) {
-    //await new Promise((resolve) => setTimeout(resolve, 3000));
+    // for some reason, unbeknownst to me and probably God,
+    //   adding the promise below adds the loading animation
+    await new Promise((resolve) => setTimeout(resolve, 10));
     if (formData === "" || formData === undefined) {
       setData([]);
     } else {
@@ -176,6 +188,7 @@ export default function BasicTable({ getData }: { getData: any }) {
       }
     }
 
+    console.log("finished the handle search function");
     setIsLoading(false);
   }
 
@@ -228,7 +241,13 @@ export default function BasicTable({ getData }: { getData: any }) {
     onGlobalFilterChange: setFiltering,
   });
 
-  if (data.length === 0 && !isLoading) {
+  if (isError) {
+    return (
+      <div>
+        <p>An unexpected error has occured, please try again shortly</p>
+      </div>
+    );
+  } else if (data.length === 0 && !isLoading) {
     return (
       <div>
         <ClanTagSearch
