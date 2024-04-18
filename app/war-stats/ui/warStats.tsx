@@ -118,7 +118,7 @@ export default function WarStats({ getData }: { getData: any }) {
         </p>
       </div>
     );
-  } else if (isLoading || true) {
+  } else if (isLoading) {
     return (
       <div>
         <ClanTagSearch
