@@ -4,6 +4,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { WarHistoryLineGraph } from "./warHistoryLineGraph";
 import { ClanTagSearch } from "@/app/ui/clanTagSearch";
+import { StatsSkeleton } from "./skeletons";
 
 export default function WarStats({ getData }: { getData: any }) {
   const searchParams = useSearchParams();
@@ -117,7 +118,7 @@ export default function WarStats({ getData }: { getData: any }) {
         </p>
       </div>
     );
-  } else if (isLoading) {
+  } else if (isLoading || true) {
     return (
       <div>
         <ClanTagSearch
@@ -126,7 +127,7 @@ export default function WarStats({ getData }: { getData: any }) {
           setIsLoading={setIsLoading}
           prevValue={prevTag}
         />
-        <p>loading...</p>
+        <StatsSkeleton />
       </div>
     );
   } else {
