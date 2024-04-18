@@ -29,12 +29,13 @@ export function ClanTagSearch({
       <input
         name="query"
         type="text"
-        placeholder="Enter Your Clan Tag"
+        placeholder="Enter Your Clan Tag (Ex. Q23DG9)"
         defaultValue={isLoading ? " " : prevValue}
         disabled={isLoading}
+        className="bg-white border-solid border-gray-300 px-3 w-full max-w-72 h-8 rounded-l-md border disabled:hover:cursor-wait"
       />
       <button
-        className="disabled:border-red-500 disabled:border-2"
+        className="disabled:hover:bg-white disabled:hover:cursor-wait disabled:opacity-55 hover:bg-gray-200 bg-white border px-3 h-8 -ml-[1px] rounded-r-md"
         disabled={isLoading}
         type="submit"
         onClick={() => console.log("form button clicked")}

@@ -301,7 +301,7 @@ export default function BasicTable({ getData }: { getData: any }) {
         <div className="relative mt-1">
           <div className="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
             <svg
-              className="w-4 h-4 text-gray-500 dark:text-gray-400"
+              className="w-4 h-4 text-gray-500 "
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -321,13 +321,13 @@ export default function BasicTable({ getData }: { getData: any }) {
             id="table-search"
             value={filtering}
             onChange={(e) => setFiltering(e.target.value)}
-            className="block pt-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 py-2 my-5"
+            className="block pt-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 py-2 my-5"
             placeholder="Search for items"
           />
         </div>
         <div className="flex flex-1 overflow-x-auto shadow-md rounded-xl sm:rounded-md xl:w-[1200px] lg:w-[1000px] w-screen">
-          <table className="table-auto text-sm text-center rtl:text-right text-gray-500 dark:text-gray-400 w-screen">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-400 dark:bg-gray-700 dark:text-gray-400">
+          <table className="table-auto text-sm text-center rtl:text-right text-gray-500  w-screen">
+            <thead className="text-xs text-gray-700 uppercase bg-gray-400  ">
               {table.getHeaderGroups().map((headerGroup) => (
                 <tr key={headerGroup.id}>
                   {headerGroup.headers.map((header) => (
@@ -366,7 +366,7 @@ export default function BasicTable({ getData }: { getData: any }) {
               {table.getRowModel().rows.map((row) => (
                 <tr
                   key={row.id}
-                  className="odd:bg-white odd:dark:bg-gray-900 even:dark:bg-gray-800 border-t dark:border-gray-700 border-gray-400"
+                  className="odd:bg-white  even:bg-gray-200 border-t  border-gray-400"
                 >
                   {row.getVisibleCells().map((cell) => (
                     <td
@@ -379,14 +379,15 @@ export default function BasicTable({ getData }: { getData: any }) {
                           cell.column.getIndex() === 0,
                         "bg-red-200":
                           cell.column.getIndex() === 2 &&
-                          Number(cell.getValue()) <= 750,
+                          Number(cell.getValue()) <= 750 &&
+                          data[cell.row.index].Weeks != 0,
                         "bg-yellow-200":
                           cell.column.getIndex() === 2 &&
                           Number(cell.getValue()) > 750 &&
-                          Number(cell.getValue()) <= 1600,
+                          Number(cell.getValue()) < 1600,
                         "bg-green-200":
                           cell.column.getIndex() === 2 &&
-                          Number(cell.getValue()) > 1600,
+                          Number(cell.getValue()) >= 1600,
                       })}
                     >
                       {flexRender(
