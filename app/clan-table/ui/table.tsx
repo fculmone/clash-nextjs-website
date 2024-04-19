@@ -24,6 +24,7 @@ export default function BasicTable({ getData }: { getData: any }) {
   const { replace } = useRouter();
 
   const [data, setData] = useState<any[]>([]);
+  const [clanName, setClanName] = useState<string>();
   const [prevTag, setPrevTag] = useState<string | undefined>("");
   // prettier-ignore
   const [graphData, setGraphData] = useState<any[]>([{
@@ -80,6 +81,7 @@ export default function BasicTable({ getData }: { getData: any }) {
               } else {
                 setData(initialData[0]);
                 setGraphData(initialData[1]);
+                setClanName(initialData[2]);
               }
               setIsLoading(false);
               setPrevTag(searchParams.get("clan-tag")?.toString());
@@ -144,6 +146,7 @@ export default function BasicTable({ getData }: { getData: any }) {
       } else {
         setData(response[0]);
         setGraphData(response[1]);
+        setClanName(response[2]);
         setPrevTag(formData);
       }
     }
@@ -210,36 +213,43 @@ export default function BasicTable({ getData }: { getData: any }) {
   } else if (data.length === 0 && !isLoading) {
     return (
       <div>
-        <ClanTagSearch
-          handleSearch={handleSearch}
-          isLoading={isLoading}
-          setIsLoading={setIsLoading}
-          prevValue={prevTag}
-        />
-        <p>Please enter in your clan</p>
+        <div className="flex w-screen text-center justify-center items-center">
+          <ClanTagSearch
+            handleSearch={handleSearch}
+            isLoading={isLoading}
+            setIsLoading={setIsLoading}
+            prevValue={prevTag}
+          />
+        </div>
+
+        <p className="text-center">Please enter in your clan</p>
       </div>
     );
   } else if (data.length === 1 && !isLoading) {
     return (
       <div>
-        <ClanTagSearch
-          handleSearch={handleSearch}
-          isLoading={isLoading}
-          setIsLoading={setIsLoading}
-          prevValue={prevTag}
-        />
-        <p>Clan Tag is invalid</p>
+        <div className="flex w-screen text-center justify-center items-center">
+          <ClanTagSearch
+            handleSearch={handleSearch}
+            isLoading={isLoading}
+            setIsLoading={setIsLoading}
+            prevValue={prevTag}
+          />
+        </div>
+        <p className="text-center">Clan Tag is invalid</p>
       </div>
     );
   } else if (isLoading) {
     return (
       <div>
-        <ClanTagSearch
-          handleSearch={handleSearch}
-          isLoading={isLoading}
-          setIsLoading={setIsLoading}
-          prevValue={prevTag}
-        />
+        <div className="flex justify-center items-center text-center mb-10">
+          <ClanTagSearch
+            handleSearch={handleSearch}
+            isLoading={isLoading}
+            setIsLoading={setIsLoading}
+            prevValue={prevTag}
+          />
+        </div>
         <TableSkeleton />
       </div>
     );
@@ -289,12 +299,17 @@ export default function BasicTable({ getData }: { getData: any }) {
           </div>
         </div>
         {/* End of War Battle Graph*/}
-        <ClanTagSearch
-          handleSearch={handleSearch}
-          isLoading={isLoading}
-          setIsLoading={setIsLoading}
-          prevValue={prevTag}
-        />
+        <div className="flex justify-center items-center text-center mb-10">
+          <ClanTagSearch
+            handleSearch={handleSearch}
+            isLoading={isLoading}
+            setIsLoading={setIsLoading}
+            prevValue={prevTag}
+          />
+        </div>
+        <p className="mt-10 mb-12 font-bold text-2xl text-center">
+          {clanName}&apos;s Clan Table
+        </p>
         <label htmlFor="table-search" className="sr-only">
           Search
         </label>

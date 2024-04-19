@@ -21,7 +21,16 @@ export default function Header() {
           <nav className="flex flex-col w-screen z-30 bg-white border-gray-200 px-4 lg:px-6 py-2.5 border-b border-solid shadow-sm">
             <div className="flex flex-row justify-between items-center mx-auto w-full max-w-screen-2xl">
               <div className="flex">
-                <a href="/" className="flex items-center">
+                <a
+                  href={
+                    "/" +
+                    (searchParams.get("clan-tag")?.toString() != undefined &&
+                    searchParams.get("clan-tag")?.toString() != ""
+                      ? "?clan-tag=" + searchParams.get("clan-tag")?.toString()
+                      : "")
+                  }
+                  className="flex items-center"
+                >
                   <Image
                     src="/war-shield.webp"
                     width={259}

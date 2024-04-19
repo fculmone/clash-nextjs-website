@@ -19,20 +19,27 @@ export function ClanTagSearch({
 
   function search(formData: any) {
     console.log("in search function");
-    //alert("hi");
+    let response: string = formData.get("query");
+    response = response.toUpperCase();
+    response = response.trim();
+    if (response.charAt(0) == "#") {
+      response = response.slice(1);
+    }
     setIsLoading(true);
-    handleSearch(formData.get("query"));
+    handleSearch(response);
   }
 
   return (
-    <form action={search}>
+    <form action={search} className="block w-full whitespace-nowrap">
       <input
         name="query"
         type="text"
-        placeholder="Enter Your Clan Tag (Ex. Q23DG9)"
-        defaultValue={isLoading ? " " : prevValue}
+        placeholder={
+          isLoading ? "Loading..." : "Enter Your Clan Tag (Ex. Q23DG9)"
+        }
+        defaultValue={isLoading ? "" : prevValue}
         disabled={isLoading}
-        className="bg-white border-solid border-gray-300 px-3 w-full max-w-72 h-8 rounded-l-md border disabled:hover:cursor-wait"
+        className="bg-white border-solid border-gray-300 px-3 w-full max-w-72 h-8 rounded-l-md border disabled:text-white disabled:hover:cursor-wait"
       />
       <button
         className="disabled:hover:bg-white disabled:hover:cursor-wait disabled:opacity-55 hover:bg-gray-200 bg-white border px-3 h-8 -ml-[1px] rounded-r-md"

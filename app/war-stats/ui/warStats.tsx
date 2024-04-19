@@ -89,13 +89,16 @@ export default function WarStats({ getData }: { getData: any }) {
   } else if (data.length === 0 && !isLoading) {
     return (
       <div>
-        <ClanTagSearch
-          handleSearch={handleSearch}
-          isLoading={isLoading}
-          setIsLoading={setIsLoading}
-          prevValue={prevTag}
-        />
-        <p>Please enter in your clan</p>
+        <div className="flex w-screen text-center justify-center items-center">
+          <ClanTagSearch
+            handleSearch={handleSearch}
+            isLoading={isLoading}
+            setIsLoading={setIsLoading}
+            prevValue={prevTag}
+          />
+        </div>
+
+        <p className="text-center">Please enter in your clan</p>
       </div>
     );
   } else if (
@@ -106,13 +109,16 @@ export default function WarStats({ getData }: { getData: any }) {
   ) {
     return (
       <div>
-        <ClanTagSearch
-          handleSearch={handleSearch}
-          isLoading={isLoading}
-          setIsLoading={setIsLoading}
-          prevValue={prevTag}
-        />
-        <p>
+        <div className="flex w-screen text-center justify-center items-center">
+          <ClanTagSearch
+            handleSearch={handleSearch}
+            isLoading={isLoading}
+            setIsLoading={setIsLoading}
+            prevValue={prevTag}
+          />
+        </div>
+
+        <p className="text-center">
           Either the clan tag is invalid, or the clan is not currently in a
           river race
         </p>
@@ -121,19 +127,22 @@ export default function WarStats({ getData }: { getData: any }) {
   } else if (isLoading) {
     return (
       <div>
-        <ClanTagSearch
-          handleSearch={handleSearch}
-          isLoading={isLoading}
-          setIsLoading={setIsLoading}
-          prevValue={prevTag}
-        />
+        <div className="text-center">
+          <ClanTagSearch
+            handleSearch={handleSearch}
+            isLoading={isLoading}
+            setIsLoading={setIsLoading}
+            prevValue={prevTag}
+          />
+        </div>
+
         <StatsSkeleton />
       </div>
     );
   } else {
     return (
       <div>
-        <div className="w-full mx-8">
+        <div className="w-full text-center">
           <ClanTagSearch
             handleSearch={handleSearch}
             isLoading={isLoading}
