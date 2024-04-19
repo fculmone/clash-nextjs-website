@@ -34,9 +34,7 @@ export function ClanTagSearch({
       <input
         name="query"
         type="text"
-        placeholder={
-          isLoading ? "Loading..." : "Enter Your Clan Tag (Ex. Q23DG9)"
-        }
+        placeholder={isLoading ? "Loading..." : "Enter Clan Tag (Ex. Q8UGY2V2)"}
         defaultValue={isLoading ? "" : prevValue}
         disabled={isLoading}
         className="bg-white border-solid border-gray-300 px-3 w-full max-w-72 h-8 rounded-l-md border disabled:text-white disabled:hover:cursor-wait"
