@@ -17,6 +17,7 @@ import { Underdog } from "next/font/google";
 import { TableSkeleton } from "./skeletons";
 import { WarBattleGraph } from "./warBattlesGraph";
 import { ClanTagSearch } from "@/app/ui/clanTagSearch";
+import { HowToInputClan } from "@/app/ui/howToInputClan";
 
 export default function BasicTable({ getData }: { getData: any }) {
   const searchParams = useSearchParams();
@@ -212,31 +213,47 @@ export default function BasicTable({ getData }: { getData: any }) {
     );
   } else if (data.length === 0 && !isLoading) {
     return (
-      <div>
-        <div className="flex w-screen text-center justify-center items-center">
+      <div className="flex flex-col">
+        <div className="flex flex-col w-screen text-center justify-center items-center">
           <ClanTagSearch
             handleSearch={handleSearch}
             isLoading={isLoading}
             setIsLoading={setIsLoading}
             prevValue={prevTag}
           />
+          <p className="text-center mt-6 mb-10 text-xl font-medium">
+            Please enter in a clan tag
+          </p>
+          <p className="text-center mb-2">How to find your clan tag</p>
+          <div className="flex aspect-square max-w-[450px] justify-center rounded-md overflow-hidden items-center">
+            <HowToInputClan />
+          </div>
         </div>
-
-        <p className="text-center">Please enter in your clan</p>
       </div>
     );
   } else if (data.length === 1 && !isLoading) {
     return (
-      <div>
-        <div className="flex w-screen text-center justify-center items-center">
+      <div className="flex flex-col">
+        <div className="flex flex-col w-screen text-center justify-center items-center">
           <ClanTagSearch
             handleSearch={handleSearch}
             isLoading={isLoading}
             setIsLoading={setIsLoading}
             prevValue={prevTag}
           />
+          <p className="text-center mt-6 mb-10 text-xl font-medium">
+            The clan tag is invalid
+          </p>
+          <p className="text-center mb-2">How to find your clan tag</p>
+          <div className="flex aspect-square max-w-[450px] justify-center rounded-md overflow-hidden items-center">
+            <HowToInputClan />
+          </div>
+          <p className="text-center mt-10 mb-2 text-lg font-medium">Pro tip:</p>
+          <p className="text-center  text-base max-w-[450px]">
+            Often, the number zero looks like the letter O. Try switching them
+            in your clan tag.
+          </p>
         </div>
-        <p className="text-center">Clan Tag is invalid</p>
       </div>
     );
   } else if (isLoading) {

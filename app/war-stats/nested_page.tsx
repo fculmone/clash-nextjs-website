@@ -10,7 +10,6 @@ export default function NestedPage({ getData }: { getData: any }) {
         <Suspense>
           <WarStats getData={getData} />
         </Suspense>
-        <p className="text-blue-900">heheheha</p>
       </div>
     </div>
   );

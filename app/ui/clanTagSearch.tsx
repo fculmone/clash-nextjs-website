@@ -21,7 +21,8 @@ export function ClanTagSearch({
     console.log("in search function");
     let response: string = formData.get("query");
     response = response.toUpperCase();
-    response = response.trim();
+    response = response.replace(/\s+/g, "");
+    console.log(response);
     if (response.charAt(0) == "#") {
       response = response.slice(1);
     }
