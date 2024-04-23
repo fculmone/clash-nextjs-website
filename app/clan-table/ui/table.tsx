@@ -445,7 +445,7 @@ export default function BasicTable({ getData }: { getData: any }) {
           <p className="mb-5 font-semibold text-xl text-center">
             How to Use The Clan Table
           </p>
-          <p className="text-center mx-2 text-base max-w-[900px]">
+          <p className="text-center ml-2 mr-4 text-base max-w-[900px]">
             This clan table can help determine the participation of the
             clan&apos;s members in both war battles and donations. While some
             features may not be immediately apparent, they are quite useful. One
