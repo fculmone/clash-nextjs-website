@@ -441,7 +441,7 @@ export default function BasicTable({ getData }: { getData: any }) {
           </table>
         </div>
 
-        <div className="my-16 w-full flex flex-col mx-2 justify-center items-center">
+        <div className="my-16 w-full flex flex-col ml-2 mr-4 justify-center items-center">
           <p className="mb-5 font-semibold text-xl text-center">
             How to Use The Clan Table
           </p>
