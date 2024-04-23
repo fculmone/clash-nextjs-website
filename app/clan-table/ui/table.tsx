@@ -114,6 +114,11 @@ export default function BasicTable({ getData }: { getData: any }) {
     })();
   }, []);
 
+  // used to get rid of tiny horizontal scrollbar
+  useEffect(() => {
+    document.body.style.overflowX = "hidden";
+  }, []);
+
   const openGraph = (tableColumn: number, playerIndex: number) => {
     if (tableColumn === 0) {
       playerIndexRef.current = playerIndex;
