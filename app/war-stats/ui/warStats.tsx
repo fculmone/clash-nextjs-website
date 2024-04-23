@@ -264,10 +264,11 @@ export default function WarStats({ getData }: { getData: any }) {
               </p>
               <p className="text-center mx-2 text-base max-w-[900px]">
                 This chart displays the past ten weeks of war history for all of
-                the clans' competitors in the current war week. Each war week is
-                treated as a coliseum week, where the number on the y-axis
-                represents the sum of all clan members' war fame. You can hide
-                any clan by clicking on the clan name in the legend.
+                the clans&apos; competitors in the current war week. Each war
+                week is treated as a coliseum week, where the number on the
+                y-axis represents the sum of all clan members&apos; war fame.
+                You can hide any clan by clicking on the clan name in the
+                legend.
               </p>
             </div>
             <div className="mt-16 w-full flex flex-col mx-2 justify-center items-center">
@@ -276,15 +277,15 @@ export default function WarStats({ getData }: { getData: any }) {
               </p>
               <p className="text-center mx-2 text-base max-w-[900px]">
                 Note that this brief explanation delves into technical details
-                and is not required to use the probabilities; it's more for
+                and is not required to use the probabilities; it&apos;s more for
                 those who are interested. Essentially, since each war week is
                 treated as a coliseum week, the total war fame for each week is
-                the sum of the clan members' fame. With each clan usually
+                the sum of the clan members&apos; fame. With each clan usually
                 containing thirty or more members, the central limit theorem
                 holds. This means that we can model the probability of each
-                clan's war fame per week with the normal distribution, which
-                allows us to calculate the probability of one clan having more
-                or less war fame than the other opposing clans.
+                clan&apos;s war fame per week with the normal distribution,
+                which allows us to calculate the probability of one clan having
+                more or less war fame than the other opposing clans.
                 <br />
                 &nbsp;
                 <br />

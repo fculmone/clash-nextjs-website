@@ -441,17 +441,18 @@ export default function BasicTable({ getData }: { getData: any }) {
             How to Use The Clan Table
           </p>
           <p className="text-center mx-2 text-base max-w-[900px]">
-            This clan table can help determine the participation of the clan's
-            members in both war battles and donations. While some features may
-            not be immediately apparent, they are quite useful. One such feature
-            is sorting: clicking on any title in the header row allows sorting
-            in ascending and descending order. Another, more intriguing feature,
-            is the bar graph that appears when you click on any player's name.
-            This graph illustrates how much war fame a player has earned in each
-            of the past ten war weeks. You can hover over or click on any
+            This clan table can help determine the participation of the
+            clan&apos;s members in both war battles and donations. While some
+            features may not be immediately apparent, they are quite useful. One
+            such feature is sorting: clicking on any title in the header row
+            allows sorting in ascending and descending order. Another, more
+            intriguing feature, is the bar graph that appears when you click on
+            any player&apos;s name. This graph illustrates how much war fame a
+            player has earned in each of the past ten war weeks. You can hover
+            over or click on any individual bar to get the exact number of war
+            fame gathered during that week. You can hover over or click on any
             individual bar to get the exact number of war fame gathered during
-            that week. You can hover over or click on any individual bar to get
-            the exact number of war fame gathered during that week.
+            that week.
           </p>
         </div>
       </div>
