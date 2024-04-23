@@ -86,7 +86,7 @@ export default function WarStats({ getData }: { getData: any }) {
       <>
         {data[0].length > 0 ? (
           <div className="text-center">
-            <p className="mb-4">
+            <p className="mb-4 mx-2">
               Based on your previous clan war history, the probability of your
               rank in the next war battle is as follows:{" "}
             </p>
@@ -153,7 +153,7 @@ export default function WarStats({ getData }: { getData: any }) {
             </div>
           </div>
         ) : (
-          <div>
+          <div className="mx-2">
             Cannot calculate probabilities since one or more clans does not have
             any war history
           </div>
@@ -164,7 +164,7 @@ export default function WarStats({ getData }: { getData: any }) {
 
   if (isError) {
     return (
-      <div>
+      <div className="mx-2">
         <p>An unexpected error has occured, please try again shortly</p>
       </div>
     );
@@ -178,10 +178,10 @@ export default function WarStats({ getData }: { getData: any }) {
             setIsLoading={setIsLoading}
             prevValue={prevTag}
           />
-          <p className="text-center mt-6 mb-10 text-xl font-medium">
+          <p className="text-center mt-6 mb-10 text-xl mx-2 font-medium">
             Please enter in a clan tag
           </p>
-          <p className="text-center mb-2">How to find your clan tag</p>
+          <p className="text-center mb-2 mx-2">How to find your clan tag</p>
           <div className="flex aspect-square max-w-[450px] justify-center rounded-md overflow-hidden items-center">
             <HowToInputClan />
           </div>
@@ -203,7 +203,7 @@ export default function WarStats({ getData }: { getData: any }) {
             setIsLoading={setIsLoading}
             prevValue={prevTag}
           />
-          <p className="text-center mt-6 mb-10 text-xl font-medium">
+          <p className="text-center mt-6 mb-10 text-xl my-3 font-medium">
             Either the clan tag is invalid, or the clan is not currently in a
             river race
           </p>
@@ -246,14 +246,50 @@ export default function WarStats({ getData }: { getData: any }) {
               prevValue={prevTag}
             />
           </div>
-          <div className="flex flex-col h-screen w-screen max-h-[800px] max-w-[800px]  px-1 sm:px-4 md:px-8 items-center justify-top mt-14">
+          <div className="flex flex-col h-screen w-screen max-h-[800px] max-w-[800px] px-1 sm:px-4 md:px-8 items-center justify-top mt-14">
             <p className=" mb-4 font-bold text-2xl text-center">
-              {data[1][1]}&apos;s Clan Stats
+              {data[1][1]}&apos;s War Stats
             </p>
             <WarHistoryLineGraph graphData={data} />
 
-            <div className=" mt-12">
+            <div className="mt-12">
+              <p className="mb-5 font-semibold text-xl text-center">
+                Probabilities
+              </p>
               <Probabilities />
+            </div>
+            <div className=" mt-16 w-full flex flex-col mx-2 justify-center items-center">
+              <p className="mb-5 font-semibold text-xl text-center">
+                How to Use The War Stats Chart
+              </p>
+              <p className="text-center mx-2 text-base max-w-[900px]">
+                This chart displays the past ten weeks of war history for all of
+                the clans' competitors in the current war week. Each war week is
+                treated as a coliseum week, where the number on the y-axis
+                represents the sum of all clan members' war fame. You can hide
+                any clan by clicking on the clan name in the legend.
+              </p>
+            </div>
+            <div className="mt-16 w-full flex flex-col mx-2 justify-center items-center">
+              <p className="mb-5 font-semibold text-xl text-center">
+                How is the Probability Calculated?
+              </p>
+              <p className="text-center mx-2 text-base max-w-[900px]">
+                Note that this brief explanation delves into technical details
+                and is not required to use the probabilities; it's more for
+                those who are interested. Essentially, since each war week is
+                treated as a coliseum week, the total war fame for each week is
+                the sum of the clan members' fame. With each clan usually
+                containing thirty or more members, the central limit theorem
+                holds. This means that we can model the probability of each
+                clan's war fame per week with the normal distribution, which
+                allows us to calculate the probability of one clan having more
+                or less war fame than the other opposing clans.
+                <br />
+                &nbsp;
+                <br />
+                &nbsp;
+              </p>
             </div>
           </div>
         </div>

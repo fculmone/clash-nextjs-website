@@ -31,7 +31,7 @@ export function WarHistoryLineGraph({ graphData }: { graphData: any[] }) {
         },
         title: {
           display: true,
-          text: "Clan War Points History",
+          text: "Clan War Fame History",
         },
       },
     };

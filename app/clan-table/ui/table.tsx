@@ -241,15 +241,17 @@ export default function BasicTable({ getData }: { getData: any }) {
             setIsLoading={setIsLoading}
             prevValue={prevTag}
           />
-          <p className="text-center mt-6 mb-10 text-xl font-medium">
+          <p className="text-center mt-6 mx-2 mb-10 text-xl font-medium">
             The clan tag is invalid
           </p>
           <p className="text-center mb-2">How to find your clan tag</p>
           <div className="flex aspect-square max-w-[450px] justify-center rounded-md overflow-hidden items-center">
             <HowToInputClan />
           </div>
-          <p className="text-center mt-10 mb-2 text-lg font-medium">Pro tip:</p>
-          <p className="text-center  text-base max-w-[450px]">
+          <p className="text-center mt-10 mb-2 mx-2 text-lg font-medium">
+            Pro tip:
+          </p>
+          <p className="text-center  mx-2 text-base max-w-[450px]">
             Often, the number zero looks like the letter O. Try switching them
             in your clan tag.
           </p>
@@ -432,6 +434,25 @@ export default function BasicTable({ getData }: { getData: any }) {
               ))}
             </tbody>
           </table>
+        </div>
+
+        <div className="my-16 w-full flex flex-col mx-2 justify-center items-center">
+          <p className="mb-5 font-semibold text-xl text-center">
+            How to Use The Clan Table
+          </p>
+          <p className="text-center mx-2 text-base max-w-[900px]">
+            This clan table can help determine the participation of the clan's
+            members in both war battles and donations. While some features may
+            not be immediately apparent, they are quite useful. One such feature
+            is sorting: clicking on any title in the header row allows sorting
+            in ascending and descending order. Another, more intriguing feature,
+            is the bar graph that appears when you click on any player's name.
+            This graph illustrates how much war fame a player has earned in each
+            of the past ten war weeks. You can hover over or click on any
+            individual bar to get the exact number of war fame gathered during
+            that week. You can hover over or click on any individual bar to get
+            the exact number of war fame gathered during that week.
+          </p>
         </div>
       </div>
     );
