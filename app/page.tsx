@@ -75,7 +75,9 @@ export default function Home() {
           Quickly determine clan member&apos;s activity and war battle status
         </p>
         <div className="text-center mt-16">
-          <SearchClanTag />
+          <Suspense>
+            <SearchClanTag />
+          </Suspense>
         </div>
         <div className="mt-10">
           <p className="text-center mb-2 mx-2 underline underline-offset-4 text-lg">
