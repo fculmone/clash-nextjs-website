@@ -54,6 +54,11 @@ export default function WarStats({ getData }: { getData: any }) {
     })();
   }, []);
 
+  // used to get rid of tiny horizontal scrollbar
+  useEffect(() => {
+    document.body.style.overflowX = "hidden";
+  }, []);
+
   async function handleSearch(formData: string | undefined) {
     // for some reason, unbeknownst to me and probably God,
     //   adding the promise below adds the loading animation
