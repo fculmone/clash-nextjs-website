@@ -18,6 +18,7 @@ import { TableSkeleton } from "./skeletons";
 import { WarBattleGraph } from "./warBattlesGraph";
 import { ClanTagSearch } from "@/app/ui/clanTagSearch";
 import { HowToInputClan } from "@/app/ui/howToInputClan";
+import KofiButton from "kofi-button";
 
 export default function BasicTable({ getData }: { getData: any }) {
   const searchParams = useSearchParams();
@@ -459,6 +460,13 @@ export default function BasicTable({ getData }: { getData: any }) {
             individual bar to get the exact number of war fame gathered during
             that week.
           </p>
+          <div className="w-full flex justify-center mt-14 mb-10">
+            <KofiButton
+              color="#29abe0"
+              title="Support Me on Ko-fi"
+              kofiID="C0C1XAW7Q"
+            />
+          </div>
         </div>
       </div>
     );

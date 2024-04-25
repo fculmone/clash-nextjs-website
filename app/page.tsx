@@ -5,6 +5,7 @@ import Header from "./ui/header";
 import "./underline.css";
 import { HowToInputClan } from "./ui/howToInputClan";
 import { useSearchParams } from "next/navigation";
+import KofiButton from "kofi-button";
 
 function SearchClanTag() {
   const linkRef = useRef<string>("");
@@ -87,6 +88,18 @@ export default function Home() {
             <div className="flex aspect-square max-w-xl w-full justify-center rounded-md overflow-hidden ">
               <HowToInputClan />
             </div>
+          </div>
+          <div className="w-full flex justify-center mt-10 mb-10">
+            <KofiButton
+              color="#29abe0"
+              title="Support Me on Ko-fi"
+              kofiID="C0C1XAW7Q"
+            />
+          </div>
+          <div className="w-full flex text-center justify-center mt-16 mb-2">
+            <a className="text-xs hover:text-blue-400 hover:underline cursor-pointer">
+              Privacy Policy
+            </a>
           </div>
         </div>
       </div>

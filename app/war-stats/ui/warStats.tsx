@@ -6,6 +6,7 @@ import { WarHistoryLineGraph } from "./warHistoryLineGraph";
 import { ClanTagSearch } from "@/app/ui/clanTagSearch";
 import { StatsSkeleton } from "./skeletons";
 import { HowToInputClan } from "@/app/ui/howToInputClan";
+import KofiButton from "kofi-button";
 
 export default function WarStats({ getData }: { getData: any }) {
   const searchParams = useSearchParams();
@@ -291,6 +292,21 @@ export default function WarStats({ getData }: { getData: any }) {
                 clan&apos;s war fame per week with the normal distribution,
                 which allows us to calculate the probability of one clan having
                 more or less war fame than the other opposing clans.
+                <br />
+                &nbsp;
+                <br />
+                &nbsp;
+              </p>
+            </div>
+            <div>
+              <KofiButton
+                color="#29abe0"
+                title="Support Me on Ko-fi"
+                kofiID="C0C1XAW7Q"
+              />
+            </div>
+            <div>
+              <p>
                 <br />
                 &nbsp;
                 <br />
