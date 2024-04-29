@@ -18,11 +18,11 @@ export function ClanTagSearch({
   }
 
   function search(formData: any) {
-    console.log("in search function");
+    //console.log("in search function");
     let response: string = formData.get("query");
     response = response.toUpperCase();
     response = response.replace(/\s+/g, "");
-    console.log(response);
+    //console.log(response);
     if (response.charAt(0) == "#") {
       response = response.slice(1);
     }
@@ -44,7 +44,6 @@ export function ClanTagSearch({
         className="disabled:hover:bg-white disabled:hover:cursor-wait disabled:opacity-55 hover:bg-gray-200 bg-white border px-3 h-8 -ml-[1px] rounded-r-md"
         disabled={isLoading}
         type="submit"
-        onClick={() => console.log("form button clicked")}
       >
         Search
       </button>

@@ -1,22 +1,23 @@
 "use client";
 
-import { Suspense, useRef } from "react";
+import { Suspense, useEffect, useRef } from "react";
 import Header from "./ui/header";
 import "./underline.css";
 import { HowToInputClan } from "./ui/howToInputClan";
 import { useSearchParams } from "next/navigation";
 import KofiButton from "kofi-button";
+import Link from "next/link";
 
 function SearchClanTag() {
   const linkRef = useRef<string>("");
   const searchParams = useSearchParams();
 
   function search(formData: any) {
-    console.log("in search function");
+    //console.log("in search function");
     let response: string = formData.get("query");
     response = response.toUpperCase();
     response = response.replace(/\s+/g, "");
-    console.log(response);
+    //console.log(response);
     if (response.charAt(0) == "#") {
       response = response.slice(1);
     }
@@ -59,7 +60,30 @@ function SearchClanTag() {
   );
 }
 
+function PrivacyPolicyLink() {
+  const searchParams = useSearchParams();
+  return (
+    <Link
+      href={
+        "/privacy-policy" +
+        (searchParams.get("clan-tag")?.toString() != undefined &&
+        searchParams.get("clan-tag")?.toString() != ""
+          ? "?clan-tag=" + searchParams.get("clan-tag")?.toString()
+          : "")
+      }
+      className="text-xs hover:text-blue-400 hover:underline cursor-pointer"
+    >
+      Privacy Policy
+    </Link>
+  );
+}
+
 export default function Home() {
+  // used to get rid of tiny horizontal scrollbar
+  useEffect(() => {
+    document.body.style.overflowX = "hidden";
+  }, []);
+
   return (
     <div className="flex min-h-screen flex-col items-center">
       <Suspense>
@@ -96,10 +120,11 @@ export default function Home() {
               kofiID="C0C1XAW7Q"
             />
           </div>
+
           <div className="w-full flex text-center justify-center mt-16 mb-2">
-            <a className="text-xs hover:text-blue-400 hover:underline cursor-pointer">
-              Privacy Policy
-            </a>
+            <Suspense>
+              <PrivacyPolicyLink />
+            </Suspense>
           </div>
         </div>
       </div>

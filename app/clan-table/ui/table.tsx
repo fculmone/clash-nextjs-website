@@ -65,7 +65,7 @@ export default function BasicTable({ getData }: { getData: any }) {
       try {
         if (searchParams.get("clan-tag")?.toString()) {
           if (searchParams.get("clan-tag")?.toString() === "") {
-            console.log("clan-tag is empty");
+            //console.log("clan-tag is empty");
             setData([]);
             setIsLoading(false);
           } else {
@@ -74,9 +74,9 @@ export default function BasicTable({ getData }: { getData: any }) {
               searchParams.get("clan-tag")?.toString()
             );
             if (initialData === undefined) {
-              console.log("initialData undefined, reloading page");
+              //console.log("initialData undefined, reloading page");
               location.reload();
-              console.log("initialData undefined, just reloaded the page");
+              //console.log("initialData undefined, just reloaded the page");
             } else {
               if (initialData.length === 1) {
                 setData(initialData);
@@ -87,7 +87,7 @@ export default function BasicTable({ getData }: { getData: any }) {
               }
               setIsLoading(false);
               setPrevTag(searchParams.get("clan-tag")?.toString());
-              console.log(initialData);
+              //console.log(initialData);
             }
           }
         }
@@ -124,7 +124,7 @@ export default function BasicTable({ getData }: { getData: any }) {
     if (tableColumn === 0) {
       playerIndexRef.current = playerIndex;
       setIsOpen(true);
-      console.log(playerIndexRef.current);
+      //console.log(playerIndexRef.current);
     }
   };
 
@@ -145,8 +145,8 @@ export default function BasicTable({ getData }: { getData: any }) {
       replace(`${pathname}?${params.toString()}`);
       const response = await getData(formData);
 
-      console.log(response);
-      console.log(response.length);
+      //console.log(response);
+      //console.log(response.length);
       if (response.length === 1) {
         setData(response);
         setPrevTag(formData);
@@ -158,7 +158,7 @@ export default function BasicTable({ getData }: { getData: any }) {
       }
     }
 
-    console.log("finished the handle search function");
+    //console.log("finished the handle search function");
     setIsLoading(false);
   }
 

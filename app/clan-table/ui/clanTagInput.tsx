@@ -14,10 +14,9 @@ export default function ClanTagInput() {
   async function search(formData: any) {
     "use server";
     const query = formData.get("query");
-    //console.log("hi")
     //TODO add search logic
     const response = await getDataFromServer(query.toString());
-    console.log(response);
+    //console.log(response);
   }
 
   return (
