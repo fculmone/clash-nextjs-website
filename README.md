@@ -1,6 +1,6 @@
 # Royale Clan Manager
 
-Welcome to the Royale Clan Manager, a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). This application serves as the frontend to a comprehensive website designed for managing Clash Royale clans. Explore the live site at [RoyaleClanManager.com](https://royaleclanmanager.com). For insights into the backend, visit the [Python API repository](https://github.com/fculmone/python-api-clashroyale).
+Welcome to the Royale Clan Manager, a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). This application serves as the frontend to a comprehensive website designed for managing Clash Royale clans. Explore the live site at [RoyaleClanManager.com](https://royaleclanmanager.com). If you prefer, you can check out the following link,[RoyaleClanManager.com/?clan-tag=Q8UGY2V2](https://royaleclanmanager.com/?clan-tag=Q8UGY2V2), so that the search bar is pre-filled! For insights into the backend, visit the [Python API repository](https://github.com/fculmone/python-api-clashroyale).
 
 ## Website Preview
 
