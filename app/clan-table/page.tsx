@@ -2,6 +2,15 @@ import BasicTable from "./ui/table";
 import { getDataFromServer } from "../lib/data";
 import { Suspense } from "react";
 import NestedPage from "./nested_page";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Royale Clan Manager | Clan Table",
+  description: "Clan Table for Royale Clan Manager",
+  alternates: {
+    canonical: "https://royaleclanmanager.com/clan-table",
+  },
+};
 
 export default function Page() {
   return (

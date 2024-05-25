@@ -91,14 +91,15 @@ export default function Home() {
       </Suspense>
       <div className="mx-2">
         <div className="underline-css w-full flex items-center justify-center">
-          <p className="w-full text-center text-5xl md:text-6xl font-bold mt-20 md:mt-28 leading-tight">
+          <h1 className="w-full text-center text-5xl md:text-6xl font-bold mt-20 md:mt-28 leading-tight">
             Royale Clan Manager
-          </p>
+          </h1>
         </div>
 
-        <p className="text-center font-semibold text-lg mt-16">
-          Quickly determine clan member&apos;s activity and war battle status
-        </p>
+        <h2 className="text-center font-semibold text-lg mt-16">
+          Quickly determine clan member&apos;s activity and war battle status in
+          your Clash Royale Clan.
+        </h2>
         <div className="text-center mt-16">
           <Suspense>
             <SearchClanTag />
@@ -113,7 +114,26 @@ export default function Home() {
               <HowToInputClan />
             </div>
           </div>
-          <div className="w-full flex justify-center mt-10 mb-10">
+          <div className=" mt-20 w-full flex flex-col mx-2 justify-center items-center">
+            <p className="mb-5 font-semibold text-xl text-center">
+              Welcome to the Royale Clan Manager Website!
+            </p>
+            <p className="text-center mx-2 text-base max-w-[900px]">
+              This website is a simple and effective tool for Clash Royale clan
+              leaders and members to actively track participation among clan
+              members.
+            </p>
+            <p className="text-center mx-2 mt-4 text-base max-w-[900px]">
+              Our easy-to-read table shows who is participating in clan wars and
+              keeping up with their donations. Additionally, you can view the
+              probabilities of any clan&apos;s placement in clan wars based on
+              their previous war history.
+            </p>
+            <p className="text-center italic font-semibold mx-2 mt-4 text-base max-w-[900px]">
+              Enter a clan tag to get started!
+            </p>
+          </div>
+          <div className="w-full flex justify-center mt-14 mb-10">
             <KofiButton
               color="#29abe0"
               title="Support Me on Ko-fi"

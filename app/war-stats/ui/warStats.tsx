@@ -178,16 +178,23 @@ export default function WarStats({ getData }: { getData: any }) {
     return (
       <div className="flex flex-col">
         <div className="flex flex-col w-screen text-center justify-center items-center">
+          <h1 className="mt-0 mb-4 font-bold text-2xl text-center">
+            War Stats
+          </h1>
+          <p className="text-center mt-3 mb-4 text-xl mx-2 font-medium">
+            Please enter in a clan tag
+          </p>
+
           <ClanTagSearch
             handleSearch={handleSearch}
             isLoading={isLoading}
             setIsLoading={setIsLoading}
             prevValue={prevTag}
           />
-          <p className="text-center mt-6 mb-10 text-xl mx-2 font-medium">
-            Please enter in a clan tag
+
+          <p className="text-center mt-10 mb-2 mx-2">
+            How to find your clan tag
           </p>
-          <p className="text-center mb-2 mx-2">How to find your clan tag</p>
           <div className="flex aspect-square max-w-[450px] justify-center rounded-md overflow-hidden items-center">
             <HowToInputClan />
           </div>

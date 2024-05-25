@@ -1,9 +1,9 @@
-.underline-css p {
+.underline-css h1 {
   display: inline-block;
   position: relative;
 }
 
-.underline-css p:after {
+.underline-css h1:after {
   content: "";
   height: 6px;
   width: 110px;
