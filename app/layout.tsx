@@ -9,7 +9,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Royale Clan Manager",
-  description: "The best way to manage your clash royale clan",
+  description:
+    "Quickly determine clan member's activity and war battle status in your Clash Royale Clan.",
   alternates: {
     canonical: "https://royaleclanmanager.com/",
   },

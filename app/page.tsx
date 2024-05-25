@@ -106,7 +106,7 @@ export default function Home() {
           </Suspense>
         </div>
         <div className="mt-10">
-          <p className="text-center mb-2 mx-2 underline underline-offset-4 text-lg">
+          <p className="text-center mb-2 underline underline-offset-4 text-lg">
             How to find your clan tag
           </p>
           <div className="w-full flex justify-center text-center">
@@ -114,22 +114,22 @@ export default function Home() {
               <HowToInputClan />
             </div>
           </div>
-          <div className=" mt-20 w-full flex flex-col mx-2 justify-center items-center">
+          <div className=" mt-20 w-full flex flex-col justify-center items-center">
             <p className="mb-5 font-semibold text-xl text-center">
               Welcome to the Royale Clan Manager Website!
             </p>
-            <p className="text-center mx-2 text-base max-w-[900px]">
+            <p className="text-center  text-base max-w-[900px]">
               This website is a simple and effective tool for Clash Royale clan
               leaders and members to actively track participation among clan
               members.
             </p>
-            <p className="text-center mx-2 mt-4 text-base max-w-[900px]">
+            <p className="text-center mt-4 text-base max-w-[900px]">
               Our easy-to-read table shows who is participating in clan wars and
               keeping up with their donations. Additionally, you can view the
               probabilities of any clan&apos;s placement in clan wars based on
               their previous war history.
             </p>
-            <p className="text-center italic font-semibold mx-2 mt-4 text-base max-w-[900px]">
+            <p className="text-center italic font-semibold mt-4 text-base max-w-[900px]">
               Enter a clan tag to get started!
             </p>
           </div>
