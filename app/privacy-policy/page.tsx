@@ -10,7 +10,7 @@ export default function Page() {
           <p className="mt-10 mb-6 font-bold text-2xl text-center">
             Privacy Policy
           </p>
-          <div className="w-full text-left px-2">
+          <div className="w-full text-left px-2 mb-10">
             <p className="mb-9">
               By using the Royale Clan Manager website, you agree to and accept
               the following.

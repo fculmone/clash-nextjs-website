@@ -449,16 +449,24 @@ export default function BasicTable({ getData }: { getData: any }) {
           <p className="text-center ml-2 mr-4 text-base max-w-[900px]">
             This clan table can help determine the participation of the
             clan&apos;s members in both war battles and donations. While some
-            features may not be immediately apparent, they are quite useful. One
-            such feature is sorting: clicking on any title in the header row
-            allows sorting in ascending and descending order. Another, more
-            intriguing feature, is the bar graph that appears when you click on
-            any player&apos;s name. This graph illustrates how much war fame a
-            player has earned in each of the past ten war weeks. You can hover
-            over or click on any individual bar to get the exact number of war
-            fame gathered during that week. You can hover over or click on any
-            individual bar to get the exact number of war fame gathered during
-            that week.
+            features may not be immediately apparent, they are quite useful.
+            These features include:
+            <div className="mt-5 flex justify-center">
+              <ul className="list-disc list-inside max-w-[621px]">
+                <li className="mb-3">
+                  <b>Sorting:</b> clicking on any title in the header row allows
+                  sorting in ascending and descending order.
+                </li>
+                <li className="mb-3">
+                  <b>Player&apos;s War History:</b> If you click on any
+                  player&apos;s name, a bar graph will appear. This graph
+                  illustrates how much war fame a player has earned in each of
+                  the past ten war weeks. You can hover over or click on any
+                  individual bar to get the exact number of war fame gathered
+                  during that week.
+                </li>
+              </ul>
+            </div>
           </p>
           <div className="w-full flex justify-center mt-14 mb-10">
             <KofiButton
