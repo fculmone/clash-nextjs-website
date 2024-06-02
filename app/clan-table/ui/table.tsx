@@ -475,6 +475,7 @@ export default function BasicTable({ getData }: { getData: any }) {
               </ul>
             </div>
           </p>
+          {/* 
           <div className="w-full flex justify-center mt-14 mb-10">
             <KofiButton
               color="#29abe0"
@@ -482,6 +483,7 @@ export default function BasicTable({ getData }: { getData: any }) {
               kofiID="C0C1XAW7Q"
             />
           </div>
+          */}
         </div>
       </div>
     );

@@ -305,6 +305,7 @@ export default function WarStats({ getData }: { getData: any }) {
                 &nbsp;
               </p>
             </div>
+            {/*
             <div>
               <KofiButton
                 color="#29abe0"
@@ -312,6 +313,7 @@ export default function WarStats({ getData }: { getData: any }) {
                 kofiID="C0C1XAW7Q"
               />
             </div>
+            */}
             <div>
               <p>
                 <br />
